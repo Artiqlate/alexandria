@@ -24,3 +24,6 @@ Even though there can be multiple implementations of the transmission subsystem,
 
 This subsystem advertises the server over the local network so that the client can automatially find and connect to the same.
 
+### [Media Player Subsystem](./subsystems/media-player.md)
+
+This subsystem manages and operates media player signals, properties and methods, and communicates to the transmission subsystem, and by proxy, to any devices connected to the server.
