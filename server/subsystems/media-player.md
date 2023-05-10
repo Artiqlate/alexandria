@@ -10,6 +10,10 @@ This module is automatically initialized by the server, when the server recieves
 
 ##### `Metadata` Schema
 
+This schema holds the metadata for the player.
+
+**TODO:** Might need to change metadata data structure from `Metadata` struct to a hash-map/dictionary due to the fact that there is so many standards.
+
 ```c
 struct Metadata {
     // Unique id of a media track.
@@ -28,6 +32,14 @@ struct Metadata {
 	char[]   url;
     // URL of the album art (the cover image of a song), as a URL.
 	char[]   artUrl;
+};
+```
+
+##### `PlayerIndex` Schema
+
+```c
+struct PlayerIndex {
+	int playerIndex;
 };
 ```
 
@@ -63,6 +75,33 @@ The following platforms are currently supported:
 1. [Linux](#linux-specific-signals)
 
 ## Linux-specific Signals
+
+### `mp:linux:cr` (Player Created)
+
+This describes the created player, anpd also sends back a list of created players.
+
+#### Schema
+
+
+##### `PlayerData` Schema
+
+**INCLUDES:** [`Metadata`](#metadata-schema)
+
+```c
+struct PlayerData {
+    char[] playerName;
+    char[] playbackStatus;
+    Metadata parsedMetadata;
+};
+```
+
+```c
+struct PlayerCreated {
+    char[][] updatedPlayerNames;
+    PlayerData newPlayer;
+};
+```
+
 
 ### `mp:linux:psu` (Playback Status Update)
 
@@ -123,9 +162,6 @@ Methods are the actions one can run on a media player object. Actions of a media
 
 ### Common Arguments
 
-### 
-
-
 ### `mp:list` (Media Player List)
 
 This is to list running/available media players running in the server device. This doesn't have any other arguments.
@@ -134,6 +170,32 @@ This is to list running/available media players running in the server device. Th
 
 Argument for this is nil, so the value can be omitted, or MessagePack `nil` or `null` can be passed as the argument.
 
-### `mp:play` (Media Player Play)
+### `mp:iplay` (Player Play, Index Type)
 
-This method can play
+This method can play a player identified by the integer index.
+
+Args: [`PlayerIndex`](#playerindex-schema)
+
+### `mp:ipause` (Player Pause, Index Type)
+
+This method can play a player identified by the integer index.
+
+Args: [`PlayerIndex`](#playerindex-schema)
+
+### `mp:iplaypause` (Player Play/Pause, Index Type)
+
+This method can flip the player playback state, for the player identified by the integer index.
+
+Args: [`PlayerIndex`](#playerindex-schema)
+
+### `mp:ifwd` (Player Forward, Index Type)
+
+This method can click "forward" on the player, to switch to the next media for the player.
+
+Args: [`PlayerIndex`](#playerindex-schema)
+
+### `mp:iprv` (Player Previous, Index Type)
+
+This method can click "previous" on the player, to switch to the previous media for the player.
+
+Args: [`PlayerIndex`](#playerindex-schema)
