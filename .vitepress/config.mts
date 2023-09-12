@@ -38,7 +38,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/CrosineEnterprises/cyprus' }
+      { icon: 'github', link: 'https://github.com/Apollo/cyprus' }
     ],
     footer: {
       copyright: 'Copyright (C) 2023 Goutham Krishna K V'

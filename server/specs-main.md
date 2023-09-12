@@ -4,7 +4,7 @@ outline: deep
 
 # Server Specification (`cyprus`)
 
-If you haven't perused the system design for the server, you can do it [here](system-design.md). The current reference implementation for the server is [`cyprus`](https://github.com/CrosineEnterprises/cyprus), written in Go.
+If you haven't perused the system design for the server, you can do it [here](system-design.md). The current reference implementation for the server is [`cyprus`](https://github.com/Apollo/cyprus), written in Go.
 
 ## Server API
 

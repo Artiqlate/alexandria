@@ -4,7 +4,7 @@ This is the system design for the server.
 
 The Server consists of multiple parts (called subsystems), each of which has a unique purpose. More subsystems can be added to provide even more functionality.
 
-The reference implementation of the server is written in [Go](https://go.dev), which can be found [here](https://github.com/CrosineEnterprises/cyprus) [**NOTE:** NOT MADE PUBLIC].
+The reference implementation of the server is written in [Go](https://go.dev), which can be found [here](https://github.com/Apollo/cyprus) [**NOTE:** NOT MADE PUBLIC].
 
 ![System Diagram](./system-design.png)
 

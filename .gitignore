@@ -10,6 +10,9 @@
 # !.yarn/cache
 .pnp.*
 
+# GK: Remove node_modules
+node_modules/
+
 # Remove Vitepress Dist Files
 .vitepress/dist
 .vitepress/cache
